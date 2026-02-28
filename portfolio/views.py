@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Project
+from .models import Project, profile
 
 
 def projects(request):
@@ -14,4 +14,5 @@ def project_detail(request, pk):
 
 
 def profile(request):
-    return render(request, 'profile.html')
+    profile = profile.objects.first()
+    return render(request, 'profile.html', {'profile': profile})
