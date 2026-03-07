@@ -3,16 +3,16 @@ from .models import Project, profile
 
 
 def projects(request):
-    projects = Project.object.all()
-    return render(request, 'projects.html', {'projects': projects})
+    projects = Project.objects.all()
+    return render(request, 'portfolio/projects.html', {'projects': projects})
 
 
 
 def project_detail(request, pk):
     project = get_object_or_404(Project, pk=pk)
-    return render(request, "project_detail.html", {'project': project})
+    return render(request, "portfolio/project_detail.html", {'project': project})
 
 
 def profile(request):
     profile = profile.objects.first()
-    return render(request, 'profile.html', {'profile': profile})
+    return render(request, 'portfolio/profile.html', {'profile': profile})
