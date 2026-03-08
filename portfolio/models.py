@@ -13,7 +13,7 @@ class Project(models.Model):
         return self.title
     
 
-class profile(models.Model):
+class Profile(models.Model):
     name = models.CharField(max_length=30)
     bio = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='profile/')
