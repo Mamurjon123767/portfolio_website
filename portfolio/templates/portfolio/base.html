@@ -6,17 +6,42 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <nav class="navbar navbad-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/">Portfolio</a>
-                <a class="nav-link text-white" href="/profile/">Profile</a></a>
+                <a class="nav-link text-white" href="/profile/">Profile</a>
+                <button onclick="toggleDark()" class="btn btn-secondary btn-sm ms-auto">🌙</button>
             </div>
         </nav>
-             
-    
+
+
         <div class="container mt-4">
             {% block content %}
             {% endblock %}
-        </div>    
+        </div>
+        <script>
+        function toggleDark() {
+            const isDark = document.body.classList.toggle("bg-dark");
+            document.body.classList.toggle("text-light");
+
+            const navbar = document.querySelector(".navbar");
+            navbar.classList.toggle("navbar-dark");
+            navbar.classList.toggle("navbar-light");
+            navbar.classList.toggle("bg-dark");
+            navbar.classList.toggle("bg-light");
+
+            const btn = document.querySelector(".btn");
+            btn.textContent = isDark ? "☀️" : "🌙";
+
+            localStorage.setItem("darkMode", isDark);
+        }
+
+
+        if (localStorage.getItem("darkMode") === "true") {
+            toggleDark();
+        }
+        </script>
+
+
     </body>
 </html>
